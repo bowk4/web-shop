@@ -1,0 +1,235 @@
+@import "../../styles/abstracts/variables";
+@import "../../styles/abstracts/mixins";
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.container {
+  padding: 16px;
+  max-width: $ui-max-container-width;
+
+  /*-----------------  Tablet ---------------------*/
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    padding: 24px;
+  }
+  /*----------------- Desktop ---------------------*/
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    padding: 32px;
+  }
+}
+
+.productTitle {
+  @include mobile-h2;
+  width: 100%;
+  margin-bottom: 36px;
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    width: 100%;
+    @include h2;
+    margin-bottom: 40px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.outerImagesWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    width: 49%;
+  }
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    height: 100%;
+  }
+}
+
+.imagesAndCustomizationWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  width: 100%;
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 80px;
+  }
+
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    margin-bottom: 80px;
+  }
+}
+
+.outerCustomizationWrapper {
+  display: flex;
+  width: 100%;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    width: 45%;
+  }
+}
+
+.productCustomizationWrapper {
+  align-self: flex-start;
+
+  width: 100%;
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    max-width: 320px;
+  }
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    max-width: 320px;
+  }
+}
+
+.customizationHeader {
+  font-family: $ui-font-family-bold;
+  @include small-text;
+  color: $ui-color-gray-secondary;
+  margin: 0 0 8px 0;
+}
+
+.availableColors {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 48px;
+  position: relative;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -24px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $ui-color-gray-elements;
+  }
+}
+
+.capacities {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  margin-bottom: 56px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -24px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $ui-color-gray-elements;
+  }
+}
+
+.priceWrapper {
+  margin-bottom: 16px;
+  @include flex-start;
+  align-items: center;
+}
+
+.actualPrice {
+  @include h2;
+  color: $ui-color-gray-white;
+  font-size: 32px;
+  margin-right: 8px;
+}
+
+.priceCheck {
+  font-family: $ui-font-family-regular;
+  font-size: $ui-font-size-h3;
+  font-weight: 400;
+  line-height: 1;
+  color: $ui-color-gray-secondary;
+  text-decoration: line-through;
+}
+
+.buttonsWrapper {
+  width: 100%;
+  @include flex-center;
+  gap: 8px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.aboutAndTechSpecsWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 42px;
+  }
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    margin-bottom: 80px;
+  }
+}
+
+.aboutSection {
+  color: $ui-color-gray-white;
+  width: 100%;
+  margin-bottom: 34px;
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    width: 49%;
+    margin-bottom: 0;
+  }
+
+  .aboutHeader {
+    @include h3;
+    color: $ui-color-gray-white;
+    position: relative;
+    margin-bottom: 48px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -16px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $ui-color-gray-elements;
+    }
+  }
+}
+
+.techSpecsSection {
+  width: 100%;
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    width: 45%;
+  }
+
+  .techSpecsHeader {
+    @include h3;
+    color: $ui-color-gray-white;
+    position: relative;
+    margin-bottom: 48px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -16px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $ui-color-gray-elements;
+    }
+  }
+}

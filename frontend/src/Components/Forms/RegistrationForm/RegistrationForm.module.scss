@@ -1,0 +1,104 @@
+@import "../../../styles/abstracts/variables";
+@import "../../../styles/abstracts/mixins";
+
+.regForm {
+  position: relative;
+  margin-bottom: 50px;
+  @include flex-kit(flex-start);
+  flex-direction: column;
+  text-align: center;
+  gap: 5px;
+  width: 260px;
+  min-height: 800px;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    width: 400px;
+  }
+}
+
+.formHeader {
+  @include mobile-h2;
+  padding: 10px;
+  color: $ui-color-gray-white;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    @include h2;
+  }
+}
+
+.genderContainer {
+  @include flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 60px;
+}
+
+.genderTitle {
+  margin-bottom: 5px;
+  @include body-text;
+  color: $ui-color-gray-white;
+}
+
+.optionsGroup {
+  @include flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+.genderOption {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+.inputLabel {
+  @include flex-center;
+  @include body-text;
+  height: 25px;
+  gap: 10px;
+  color: $ui-color-gray-white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btnWrapper {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.alternateAction {
+  text-align: center;
+
+  .or {
+    @include body-text;
+    color: $ui-color-gray-white;
+  }
+
+  .loginLink {
+    @include body-text;
+    color: $ui-color-gray-white;
+    text-decoration: underline;
+  }
+}
+
+.submitStatus {
+  position: absolute;
+  bottom: 15px;
+  right: 50%;
+  transform: translateX(50%);
+  @include body-text;
+  text-align: center;
+  color: $ui-color-red-badge-favorite;
+  margin-bottom: 5px;
+}
+
+.submitError {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  right: 50%;
+  transform: translateX(50%);
+  @include body-text;
+  text-align: center;
+  color: $ui-color-red-badge-favorite;
+}

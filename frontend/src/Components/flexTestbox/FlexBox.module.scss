@@ -1,0 +1,110 @@
+.slider {
+  display: flex;
+  justify-content: center;
+  background-color: #00a4bd;
+  width: 100%;
+  height: 400px;
+}
+
+.imagePhone {
+  height: 200px;
+  width: 220px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 640px) {
+  .slider {
+    flex-direction: column;
+  }
+  .imagePhone {
+    height: 290px;
+    width: 310px;
+    overflow: hidden;
+  }
+}
+
+.images {
+  order: 1;
+  background-color: #ff004c;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 1;
+}
+
+.text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  order: 1;
+  flex-shrink: 1;
+  background-color: #5fff00;
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
+  letter-spacing: 3px;
+  color: #4074b5;
+  text-shadow:
+    1px 1px 0 #343434,
+    2px 2px 0 #000000;
+  padding: 10px;
+  border-radius: 50px 50px 0 0;
+  -webkit-border-radius: 50px 50px 0 0;
+  -moz-border-radius: 50px 50px 0 0;
+  box-shadow: 0 0 14px -4px rgba(0, 0, 0, 0.52);
+  -webkit-box-shadow: 0 0 14px -4px rgba(0, 0, 0, 0.52);
+  -moz-box-shadow: 0 0 14px -4px rgba(0, 0, 0, 0.52);
+}
+
+.subtitle {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: #4074b5;
+  text-shadow:
+    1px 1px 0 #343434,
+    2px 2px 0 #000000;
+  padding: 30px 10px;
+  border-radius: 0 0 50px 50px;
+  -webkit-border-radius: 0 0 50px 50px;
+  -moz-border-radius: 0 0 50px 50px;
+  box-shadow: 0 0 14px -4px rgba(0, 0, 0, 0.52);
+  -webkit-box-shadow: 0 0 14px -4px rgba(0, 0, 0, 0.52);
+  -moz-box-shadow: 0 0 14px -4px rgba(0, 0, 0, 0.52);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  color: #4074b5;
+  background-color: #0f1121;
+  box-shadow: 0 0 14px -4px rgba(0, 0, 0, 0.52);
+  -webkit-box-shadow: 0 0 14px -4px rgba(0, 0, 0, 0.52);
+  -moz-box-shadow: 0 0 14px -4px rgba(0, 0, 0, 0.52);
+
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}

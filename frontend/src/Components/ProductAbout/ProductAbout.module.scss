@@ -1,0 +1,17 @@
+@import "../../styles/abstracts/variables";
+@import "../../styles/abstracts/mixins";
+
+.aboutTitle {
+  @include h4;
+  margin-bottom: 16px;
+}
+
+.aboutDescription {
+  @include small-text;
+  color: $ui-color-gray-secondary;
+  margin-bottom: 32px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

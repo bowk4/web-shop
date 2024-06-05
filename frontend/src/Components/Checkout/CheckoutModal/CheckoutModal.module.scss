@@ -1,0 +1,88 @@
+@import "../../../styles/abstracts/mixins";
+@import "../../../styles/abstracts/variables";
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include flex-center;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+.checkoutModal {
+  position: relative;
+  @include flex-center;
+  flex-direction: column;
+  width: 80%;
+  max-width: 600px;
+  min-height: 40%;
+  max-height: 600px;
+  padding: 40px 20px 100px;
+  background-color: $ui-color-gray-surface-1;
+  border: 1px solid $ui-color-gray-selected-surface-2;
+  overflow-y: auto;
+  z-index: 1050;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.backToCartButtonWrp {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  max-width: 100%;
+  min-width: 200px;
+  transform: translateX(-50%);
+}
+
+.textSection {
+  @include flex-center;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 200px;
+    height: 1px;
+    background-color: $ui-color-gray-white;
+    margin: auto;
+    margin-top: 10px;
+  }
+}
+
+.textParagraph {
+  @include body-text;
+  color: $ui-color-gray-white;
+  text-align: center;
+}
+
+.textList {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.textListItem {
+  margin-bottom: 5px;
+  @include body-text;
+  color: $ui-color-gray-white;
+  text-align: center;
+}
+
+.textMessage {
+  margin-top: 20px;
+  @include body-text;
+  color: $ui-color-gray-white;
+  text-align: center;
+}

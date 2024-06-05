@@ -1,0 +1,148 @@
+@import "../../../styles/abstracts/mixins";
+@import "../../../styles/abstracts/variables";
+
+.cartItem {
+  @include flex-start;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  min-width: 288px;
+  padding: 16px;
+  margin: 0 auto;
+  background-color: $ui-color-gray-surface-1;
+
+  /*-----------------  Tablet ---------------------*/
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    padding: 24px;
+    @include flex-between;
+    flex-direction: row;
+    min-width: 544px;
+  }
+  /*----------------- Desktop ---------------------*/
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    min-width: 704px;
+  }
+}
+
+.cartItemInfo {
+  @include flex-between;
+  // gap: 16px;
+}
+
+.deleteButton {
+  @include flex-center;
+  width: 16px;
+  height: 16px;
+}
+
+.cartItemLink {
+  @include flex-between;
+  gap: 16px;
+}
+
+.cartItemImg {
+  @include flex-center;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+
+  & img {
+    width: 66px;
+    height: 66px;
+    object-position: center;
+    object-fit: contain;
+  }
+}
+
+.cartItemName {
+  @include body-text;
+  font-weight: 600;
+  color: $ui-color-gray-white;
+  word-wrap: break-word;
+}
+
+.counterPriceWrapper {
+  @include flex-between;
+  width: 100%;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    width: auto;
+    gap: 24px;
+  }
+}
+
+.counter {
+  @include flex-center;
+
+  & button {
+    @include flex-center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid $ui-color-gray-elements;
+
+    &:hover {
+      background-color: $ui-color-gray-icons-placeholders;
+    }
+
+    &:disabled {
+      cursor: auto;
+
+      & svg path {
+        fill: $ui-color-gray-icons-placeholders;
+      }
+
+      &:hover {
+        background-color: $ui-color-gray-surface-1;
+      }
+    }
+  }
+}
+
+.counterPlus {
+  background-color: $ui-color-gray-selected-surface-2;
+}
+
+.quantity {
+  @include flex-center;
+  width: 32px;
+  height: 32px;
+  @include body-text;
+  font-weight: 600;
+  color: $ui-color-gray-white;
+}
+
+.priceWrapper {
+  position: relative;
+  @include flex-kit(flex-start);
+  gap: 8px;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+  }
+}
+
+.totalItemPrice {
+  @include flex-kit(flex-end);
+  width: 80px;
+  gap: 8px;
+  @include h3;
+  color: $ui-color-gray-white;
+}
+
+.originalPrice {
+  font-family: $ui-font-family-regular;
+  font-size: $ui-font-size-h3;
+  font-weight: 400;
+  line-height: 1;
+  color: $ui-color-gray-secondary;
+  text-decoration: line-through;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    position: absolute;
+    bottom: -50%;
+    right: 0;
+    font-size: $ui-font-size-h4;
+  }
+}

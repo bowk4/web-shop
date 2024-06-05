@@ -1,0 +1,25 @@
+@import "../../styles/abstracts/variables";
+
+.rectangleCarousel {
+  width: 100%;
+  padding-top: 100%;
+  background-image: url("../../../public/MocPic/carousel.png");
+  background-size: contain;
+  background-color: $ui-color-background-accessories-section;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    width: 100%;
+    max-width: $ui-max-container-width;
+    height: 0;
+    padding-top: 40%;
+    background-size: 100%;
+    background-image: url("../../../public/MocPic/carousel-tab.png");
+    background-repeat: no-repeat;
+    margin: 0 auto;
+  }
+
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    height: 463px;
+    padding-top: 0;
+  }
+}

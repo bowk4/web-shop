@@ -1,0 +1,19 @@
+@import "../../styles/abstracts/variables";
+@import "../../styles/abstracts/mixins";
+
+.button {
+  @include flex-center;
+  @include button;
+  height: 40px;
+  width: 100%;
+  color: $ui-color-gray-white;
+  border: none;
+
+  &:disabled {
+    background-color: $ui-color-gray-surface-1;
+  }
+
+  &:active {
+    background-color: $ui-color-gray-selected-surface-2;
+  }
+}

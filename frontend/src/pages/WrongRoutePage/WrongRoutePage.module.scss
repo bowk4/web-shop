@@ -1,0 +1,57 @@
+@keyframes change-color {
+  25% {
+    color: #00a4bd;
+  }
+  50% {
+    color: #ff7a59;
+  }
+  75% {
+    color: #00bda5;
+  }
+}
+.sorry {
+  color: white;
+  font-size: 120px;
+  margin: 0;
+  span {
+    padding: 0 4px;
+  }
+}
+.wrapper {
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  height: 100%;
+  width: 100%;
+}
+.linksBtn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.er {
+  animation-name: change-color;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  position: relative;
+  height: 155px;
+  background: #0f1121;
+  z-index: 2;
+
+  font-weight: 600;
+  text-align: center;
+  font-size: 60px;
+  color: #333;
+  margin-top: 1rem;
+  span {
+    display: block;
+    margin-top: 14px;
+  }
+}

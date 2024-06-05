@@ -1,0 +1,52 @@
+@import "../../styles/abstracts/mixins";
+@import "../../styles/abstracts/variables";
+@import "../../styles/global/base";
+
+.favoritesPageTitle {
+  @include mobile-h1;
+  color: $ui-color-gray-white;
+  margin-bottom: 32px;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    @include h1;
+  }
+}
+
+.titlePath {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.favoritesOutLet {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 56px;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    margin-bottom: 64px;
+  }
+
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 80px;
+  }
+
+  a {
+    @include flex-center;
+  }
+}
+
+.emptyMessageWrapper {
+  grid-column: 1 / -1;
+}
+
+.emptyMessage {
+  width: 100%;
+  @include h4;
+  color: $ui-color-gray-white;
+  text-align: center;
+}

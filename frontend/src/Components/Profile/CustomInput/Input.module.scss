@@ -1,0 +1,34 @@
+@import "../../../styles/abstracts/mixins";
+
+.error {
+  padding-top: 3px;
+  @include error-text;
+  color: $ui-color-red-badge-favorite;
+}
+
+.inputUpdatePassWrapper {
+  display: flex;
+  position: relative;
+  align-items: center;
+
+  label {
+    width: 100%;
+    height: 70px;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 45px;
+    right: 30px;
+    cursor: pointer;
+  }
+}
+
+.registration__sectionField {
+  font-size: 14px;
+  padding-top: 20px;
+  color: #75767f;
+  font-family: $ui-font-family-regular;
+}

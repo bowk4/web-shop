@@ -1,0 +1,108 @@
+@import "../../styles/abstracts/mixins";
+@import "../../styles/abstracts/variables";
+
+.chatWrapper {
+  overflow: hidden;
+  height: 500px;
+  width: 250px;
+}
+
+.faqQuestion {
+  color: black;
+  position: relative;
+  width: 240px;
+  height: 30px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.4);
+  display: flex;
+  padding-left: 10px;
+
+  overflow: hidden;
+}
+
+.backImg {
+  position: absolute;
+  height: 500px;
+  width: 250px;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.faqItem {
+  gap: 10px;
+  overflow: hidden;
+  @include h3;
+  bottom: -50px;
+  left: 15px;
+  position: relative;
+  color: black;
+  cursor: pointer;
+  //align-items: center;
+  //text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  border-radius: 7px;
+  padding-left: 5px;
+}
+
+.faqAnswer {
+  font-size: 10px;
+  font-weight: 400;
+  width: 220px;
+  transition: 1s;
+  overflow: hidden;
+  max-height: 0;
+  border-radius: 5px;
+  animation: 7s show ease;
+  color: black;
+  display: flex;
+  padding-left: 5px;
+  //justify-content: center;
+  //align-items: center;
+}
+
+.visible {
+  background: rgba(255, 255, 255, 0.2);
+  margin: 10px;
+  animation: 7s show ease;
+  max-height: 100px;
+  overflow: hidden;
+  transition:
+    opacity 200ms linear,
+    max-height 200ms linear;
+  will-change: opacity, max-height;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.conctactbtn {
+  display: flex;
+  justify-content: space-between;
+  width: 180px;
+  position: absolute;
+  left: 30px;
+  top: 420px;
+}
+
+.linkSocial {
+  transition: transform 1s ease;
+}
+
+.linkSocial:hover {
+  transform: translateY(-5px);
+}

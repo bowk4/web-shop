@@ -1,0 +1,56 @@
+@import "../../../styles/abstracts/variables";
+@import "../../../styles/abstracts/mixins";
+@import "../../../styles/global/base";
+
+.adminOptionWrapper {
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.titleWrapper {
+  position: relative;
+  svg {
+    position: absolute;
+    top: 4px;
+    right: 0;
+  }
+}
+
+.optionTitle {
+  @include h4;
+  padding: 8px 16px 8px 8px;
+  color: $ui-color-gray-white;
+}
+
+.subOption {
+  @include body-text;
+  padding: 8px;
+  color: $ui-color-gray-white;
+  cursor: pointer;
+}
+
+.selectedOption {
+  transition: 0.5s;
+  padding-left: 16px;
+  border-left: 16px solid $ui-color-primary-accent;
+  color: $ui-color-gray-white;
+  background-color: #323542ff;
+  pointer-events: none;
+}
+
+.supOptionsWrapper {
+}
+
+.supOptionsWrapperHidden {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition:
+    opacity 0.3s ease,
+    height 0.3s ease;
+}
+
+.optionToggled {
+  transform: rotate(-180deg);
+  transition: all 0.3s linear;
+}

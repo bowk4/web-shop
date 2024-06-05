@@ -1,0 +1,42 @@
+@import "../../styles/abstracts/variables";
+@import "../../styles/abstracts/mixins";
+
+.modalOverlay {
+  position: fixed;
+  right: 30px;
+  top: 250px;
+  overflow: hidden;
+  z-index: 15;
+}
+
+.help {
+  font-family: $ui-font-family-semibold;
+  line-height: 1.3;
+  letter-spacing: 0;
+  font-size: 20px;
+}
+
+.helpIcon {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  right: 2%;
+  position: fixed;
+  cursor: pointer;
+  top: 73%;
+  z-index: 15;
+}
+
+.support {
+  width: 40px;
+  height: 40px;
+}
+
+.close {
+  color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}

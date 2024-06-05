@@ -1,0 +1,23 @@
+@import "../../styles/global/base";
+@import "../../styles/abstracts/variables";
+@import "../../styles/abstracts/mixins";
+
+.loginPageWrapper {
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 10px;
+  align-items: flex-start;
+  background-color: $ui-color-gray-black-background;
+}
+
+// .tittle {
+//   font-weight: 700;
+//   font-size: 48px;
+//   line-height: 56px;
+//   letter-spacing: -0.01em;
+//   color: black;
+// }

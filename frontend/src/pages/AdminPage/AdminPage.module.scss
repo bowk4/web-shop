@@ -1,0 +1,40 @@
+@import "../../styles/abstracts/variables";
+@import "../../styles/abstracts/mixins";
+
+.container {
+  padding: 16px;
+  max-width: $ui-max-container-width;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  /*-----------------  Tablet ---------------------*/
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    padding: 24px;
+  }
+  /*----------------- Desktop ---------------------*/
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    padding: 32px;
+  }
+}
+
+.adminContent {
+  display: flex;
+  width: 100%;
+}
+
+.adminOptions {
+  width: calc(30% - 16px);
+  max-width: 272px;
+  margin-right: 16px;
+  border: 1px solid #75767f;
+}
+
+.optionContent {
+  display: flex;
+  max-width: 840px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #75767f;
+}

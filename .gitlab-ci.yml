@@ -1,0 +1,201 @@
+variables:
+  SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
+  GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+  RULES_CHANGES_PATH: "**/*"
+  LIGHTHOUSE_HOME_PAGE_URL: "https://mern-b6d37.web.app/"
+  LIGHTHOUSE_PHONES_PAGE_URL: "https://mern-b6d37.web.app/phones/"
+  LIGHTHOUSE_PRODUCT_PAGE_URL: "https://mern-b6d37.web.app/phones/iphone-15-pro-max?color=titanium%20grey&capacity=512"
+  LIGHTHOUSE_CART_PAGE_URL: "https://mern-b6d37.web.app/cart/"
+  LIGHTHOUSE_FAVOURITES_PAGE_URL: "https://mern-b6d37.web.app/favorites/"
+stages:
+  - build
+  - test
+  - sonar
+  - deploy
+  - audit
+
+.base-rules:
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "push"'
+      when: never
+    - if: $CI_COMMIT_TAG
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      changes:
+        - $RULES_CHANGES_PATH
+    - when: manual
+      allow_failure: true
+
+.backend:
+  extends: .base-rules
+  variables:
+    RULES_CHANGES_PATH: "backend/**/*"
+
+.frontend:
+  extends: .base-rules
+  variables:
+    RULES_CHANGES_PATH: "frontend/**/*"
+
+backend-build:
+  stage: build
+  extends: .backend
+  needs: []
+  script:
+    - echo "Compiling the backend code..."
+
+frontend-build:
+  stage: build
+  extends: .frontend
+  needs: []
+  image: node:latest
+  script:
+    - cd frontend/
+    - cp $FIREBASE_ENV ./.env
+    - npm install
+    - npm run build
+  artifacts:
+    when: on_success
+    paths:
+      - frontend/build/
+
+frontend-sentry:
+  stage: build
+  needs: ["frontend-build"]
+  image: node:latest
+  script:
+    - cd frontend/
+    - npm install
+    - npm run sentry:sourcemaps
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      changes:
+        - "frontend/**/*"
+
+backend-test:
+  stage: test
+  extends: .backend
+  needs: ["backend-build"]
+  script:
+    - echo "Testing the backend code..."
+
+frontend-lint:
+  stage: test
+  extends: .frontend
+  needs: ["frontend-build"]
+  image: node:latest
+  script:
+    - cd frontend/
+    - npm install
+    - npm run lint
+
+frontend-test:
+  stage: test
+  extends: .frontend
+  needs: ["frontend-build"]
+  image: node:latest
+  before_script:
+    - cd frontend/
+    - npm install
+  script:
+    - npm run test:ci
+  coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
+  artifacts:
+    paths:
+      - frontend/coverage/
+      - frontend/junit.xml
+    when: always
+    reports:
+      junit:
+        - frontend/junit.xml
+
+backend-sonar:
+  stage: sonar
+  extends: .backend
+  needs: ["backend-test"]
+  script:
+    - echo "Deploying the backend code..."
+
+frontend-sonar:
+  stage: sonar
+  extends: .frontend
+  needs: ["frontend-test", "frontend-lint"]
+  image:
+    name: sonarsource/sonar-scanner-cli:latest
+    entrypoint: [ "" ]
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script:
+    - sonar-scanner
+
+deploy-to-cloud-run:
+  stage: deploy
+  needs: ["backend-test"]
+  image: registry.gitlab.com/gitlab-org/incubation-engineering/five-minute-production/library/google-cloud-sdk-for-gitlab:main
+  script:
+    - cp -r ./utils/* .
+    - chmod +x cloud-run.sh
+    - ./cloud-run.sh
+  environment:
+    name: $CI_COMMIT_REF_NAME
+    url: $DYNAMIC_URL
+  artifacts:
+    reports:
+      dotenv: deploy.env
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      changes:
+        - "backend/**/*"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: manual
+
+deploy-to-firebase:
+  stage: deploy
+  needs: ["frontend-build", "frontend-test", "frontend-lint"]
+  image: node:latest
+  script:
+    - cd frontend/
+    - npm install
+    - npm i -g firebase-tools
+    - cat "$FIREBASE_JSON" > ./firebase.json
+    - cat "$FIREBASE_RC" > ./.firebaserc
+    - cat "$GCP_APPLICATION_CREDENTIALS" > ./gcp-application-credentials.json
+    - export GOOGLE_APPLICATION_CREDENTIALS=./gcp-application-credentials.json
+    - firebase deploy --only hosting
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      changes:
+        - "frontend/**/*"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: manual
+
+lighthouse:
+  image: markhobson/node-chrome
+  stage: audit
+  needs: ["deploy-to-firebase"]
+  before_script:
+    - cd frontend/
+    - npm i -g lighthouse
+  script:
+    - lighthouse --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" $LIGHTHOUSE_HOME_PAGE_URL --output html --output-path ./report_home.html
+    - lighthouse --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" $LIGHTHOUSE_PHONES_PAGE_URL --output html --output-path ./report_phones.html
+    - lighthouse --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" $LIGHTHOUSE_PRODUCT_PAGE_URL --output html --output-path ./report_product.html
+    - lighthouse --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" $LIGHTHOUSE_CART_PAGE_URL --output html --output-path ./report_cart.html
+    - lighthouse --chrome-flags="--headless --no-sandbox --disable-dev-shm-usage" $LIGHTHOUSE_FAVOURITES_PAGE_URL --output html --output-path ./report_favourites.html
+  artifacts:
+    paths:
+      - frontend/report_home.html
+      - frontend/report_phones.html
+      - frontend/report_product.html
+      - frontend/report_cart.html
+      - frontend/report_favourites.html
+    expire_in: 1 week
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      changes:
+        - "frontend/**/*"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: manual

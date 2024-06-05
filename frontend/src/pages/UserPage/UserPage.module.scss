@@ -1,0 +1,364 @@
+@import "../../styles/abstracts/variables";
+@import "../../styles/abstracts/mixins";
+@import "../../styles/global/base";
+@import "../../styles/global/reset";
+
+//.container {
+//  width: 100%;
+//}
+
+.unauthorizedWrapper {
+  @include flex-center;
+  flex-direction: column;
+  height: 300px;
+
+  .unauthorizedWrapperTitle {
+    @include uppercase;
+    font-size: 18px;
+    color: $ui-color-red-badge-favorite;
+    letter-spacing: 2px;
+
+    @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+      font-size: 20px;
+      letter-spacing: 3px;
+    }
+
+    @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+      font-size: 24px;
+    }
+  }
+
+  .unauthorizedWrapperSubtitle {
+    @include small-text;
+    font-size: 18px;
+    padding-top: 40px;
+    letter-spacing: 2px;
+    text-align: center;
+
+    @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+      font-size: 22px;
+      padding-top: 60px;
+      letter-spacing: 3px;
+    }
+
+    @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+      font-size: 24px;
+      padding-top: 80px;
+      letter-spacing: 3px;
+    }
+
+    .unauthorizedLogin {
+      color: #75767f;
+      text-transform: uppercase;
+      transition: $ui-transition-duration;
+
+      &:hover {
+        color: $ui-color-primary-accent-hover;
+      }
+    }
+
+    .unauthorizedSignup {
+      color: #75767f;
+      text-transform: uppercase;
+      transition: $ui-transition-duration;
+
+      &:hover {
+        color: $ui-color-primary-accent-hover;
+      }
+    }
+  }
+}
+
+// ====================
+
+.userContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    grid-template-rows: repeat(2, 320px);
+    align-items: flex-start;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    grid-template-columns: repeat(2, 450px);
+    gap: 40px;
+  }
+}
+
+.sectionAvatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  border: 1px solid #3b3e4a;
+  width: 280px;
+  height: 100px;
+
+  .avatarIcon {
+    svg {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    height: 120px;
+    gap: 40px;
+    grid-area: 1 / 1 / 2 / 2;
+
+    .avatarIcon {
+      svg {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    width: 400px;
+    height: 140px;
+
+    .avatarIcon {
+      svg {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+
+  .registration__sectionTitle {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 10px;
+
+    .registration__sectionTitleText {
+      @include small-text;
+      font-size: 16px;
+      color: $ui-color-primary-accent;
+      letter-spacing: 4px;
+
+      @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+        font-size: 18px;
+      }
+
+      @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+        font-size: 20px;
+      }
+    }
+
+    .registration__sectionTitleName {
+      letter-spacing: 2px;
+      font-family: $ui-font-family-semibold;
+      font-weight: 400;
+      line-height: 1.25;
+      font-size: 14px;
+      padding-top: 5px;
+
+      @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+        font-size: 16px;
+      }
+
+      @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.categoryUsers {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    align-items: center;
+    margin-top: 200px;
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    margin-top: 240px;
+    width: 400px;
+  }
+
+  .login__registrationSection {
+    border: 1px solid #3b3e4a;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    padding-right: 10px;
+    width: 100%;
+    height: 50px;
+    padding-left: 5px;
+    align-items: center;
+
+    @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+      height: 70px;
+    }
+
+    @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+      height: 90px;
+    }
+
+    .linkCategoryUsers {
+      @include small-text;
+      font-size: 12px;
+      display: flex;
+      align-items: flex-end;
+      color: #ffffff;
+      padding-left: 5px;
+
+      &:hover {
+        transition: $ui-transition-longer;
+        color: $ui-color-primary-accent-hover;
+      }
+
+      @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+        font-size: 14px;
+        padding-left: 10px;
+      }
+
+      @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+        font-size: 16px;
+        padding-left: 15px;
+      }
+    }
+
+    .iconForListUser {
+      cursor: pointer;
+      fill: $ui-color-primary-accent;
+    }
+  }
+}
+
+.userInfoContainer {
+  width: 280px;
+  border: 1px solid #3b3e4a;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    grid-area: 1 / 2 / 3 / 3;
+  }
+
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    width: 450px;
+  }
+
+  .userInformation {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 56px;
+
+    .sectionTitle {
+      margin-top: 15px;
+      text-align: center;
+
+      .dataTitle {
+        @include small-text;
+        font-size: 16px;
+        color: $ui-color-primary-accent;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+
+        @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+          font-size: 18px;
+        }
+      }
+    }
+    .infoDataForm {
+      width: 250px;
+
+      @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+        width: 250px;
+      }
+
+      @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+        width: 350px;
+      }
+    }
+  }
+}
+
+.dataInput {
+  outline: none;
+  border: none;
+  width: 100%;
+  margin-top: 5px;
+  padding: 15px;
+  background: #323542;
+  @include body-text;
+
+  &::placeholder {
+    color: #75767f;
+  }
+
+  &:focus {
+    border: #905bff;
+  }
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    width: 150px;
+  }
+
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    width: 250px;
+  }
+}
+.mainLinks {
+  display: flex;
+  justify-content: space-between;
+  //  @include flex-center;
+  //  position: relative;
+  //  height: 48px;
+  //  aspect-ratio: 1 / 1;
+
+  //justify-content: space-between;
+  //  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+  //    height: 64px;
+  //  }
+}
+.FavorWrapper {
+  position: relative;
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}
+.wrapperCount {
+  @include flex-center;
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+
+  & svg {
+    width: 100%;
+    height: auto;
+  }
+}
+.FavorQuantity {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: $ui-font-family-regular;
+  font-size: 9px;
+  line-height: 1;
+  font-weight: 700;
+  color: $ui-color-gray-white;
+  transform: translate(-50%, -50%);
+}

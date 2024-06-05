@@ -1,0 +1,18 @@
+@import "../../styles/abstracts/variables";
+@import "../../styles/abstracts/mixins";
+
+.favorite {
+  @include flex-center;
+  padding: 0 10px;
+  background-color: $ui-color-gray-selected-surface-2;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $ui-color-gray-icons-placeholders;
+  }
+
+  &:active {
+    background-color: inherit;
+    box-shadow: $ui-color-gray-elements 0 0 0 1px;
+  }
+}

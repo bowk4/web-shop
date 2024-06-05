@@ -1,0 +1,29 @@
+@import "../../styles/abstracts/variables";
+@import "../../styles/abstracts/mixins";
+@import "../../styles/global/base";
+
+.rightTitle {
+  @include mobile-h2;
+  color: $ui-color-gray-white;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    @include h2;
+    margin-bottom: 24px;
+  }
+}
+
+.rightPolicies {
+  list-style-type: square;
+  padding: 24px;
+}
+
+.rightItem {
+  @include small-text;
+  color: $ui-color-gray-secondary;
+  margin-bottom: 16px;
+  transition: $ui-transition;
+
+  &:hover {
+    color: $ui-color-gray-white;
+  }
+}

@@ -1,0 +1,23 @@
+@import "../../styles/abstracts/variables";
+
+.techSpec {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.specName {
+  font-family: $ui-font-family-semibold;
+  color: $ui-color-gray-secondary;
+  font-size: $ui-font-size-body-text;
+}
+
+.specDescription {
+  font-family: $ui-font-family-semibold;
+  color: $ui-color-gray-white;
+  font-size: $ui-font-size-body-text;
+}

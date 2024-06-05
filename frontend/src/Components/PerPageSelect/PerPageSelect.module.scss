@@ -1,0 +1,15 @@
+@import "../../styles/abstracts/variables";
+@import "../../styles/abstracts/mixins";
+@import "../../styles/global/base";
+
+.perPageContainer {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  max-width: 128px;
+
+  .perPageTitle {
+    @include small-text;
+    color: $ui-color-gray-secondary;
+  }
+}

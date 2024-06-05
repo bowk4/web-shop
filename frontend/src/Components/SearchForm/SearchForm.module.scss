@@ -1,0 +1,27 @@
+@import "../../styles/abstracts/variables";
+@import "../../styles/abstracts/mixins";
+
+.searchForm {
+  @include flex-start;
+  align-items: center;
+  width: auto;
+  height: 30px;
+}
+
+.searchInput {
+  width: 80%;
+  height: 100%;
+  padding: 0 8px;
+  border: none;
+  color: $ui-color-gray-white;
+
+  box-sizing: border-box;
+  background-color: inherit;
+  border-bottom: 1px solid $ui-color-gray-secondary;
+
+  &:focus {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $ui-color-gray-white;
+  }
+}

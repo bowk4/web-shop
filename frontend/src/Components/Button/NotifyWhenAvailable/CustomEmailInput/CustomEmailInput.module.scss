@@ -1,0 +1,55 @@
+@import "../../../../styles/abstracts/variables";
+@import "../../../../styles/abstracts/mixins";
+
+.inputLabelWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 80px;
+  margin-bottom: 15px;
+}
+
+.inputLabel {
+  @include body-text;
+  color: $ui-color-gray-secondary;
+  margin-bottom: 3px;
+}
+
+.emailInput {
+  height: 30px;
+  width: 100%;
+  color: $ui-color-gray-white;
+  @include body-text;
+  background-color: $ui-color-gray-selected-surface-2;
+  border: 1px solid $ui-color-gray-selected-surface-2;
+  min-width: 280px;
+
+  &:focus {
+    outline: 1px solid $ui-color-primary-accent;
+  }
+}
+
+.inputErrMsg {
+  @include error-text;
+  position: absolute;
+  top: 80px;
+  color: $ui-color-red-badge-favorite;
+}
+
+.sendButton {
+  @include flex-center;
+  @include button;
+  height: 40px;
+  width: 100%;
+  color: $ui-color-gray-white;
+  border: none;
+  background: #905bff;
+
+  &:disabled {
+    background-color: $ui-color-gray-selected-surface-2;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}

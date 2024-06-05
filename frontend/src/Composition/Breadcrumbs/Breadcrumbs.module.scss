@@ -1,0 +1,79 @@
+@import "../../styles/abstracts/variables";
+@import "../../styles/abstracts/mixins";
+@import "../../styles/global/base";
+
+.crumbLink {
+  cursor: pointer;
+  text-decoration: unset;
+  color: $ui-color-gray-white;
+
+  &:last-child {
+    color: $ui-color-gray-secondary;
+  }
+}
+
+.breadcrumbs {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  @include small-text;
+  color: $ui-color-gray-white;
+  margin: 68px auto 24px;
+
+  /*-----------------  Tablet ---------------------*/
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    margin-bottom: 40px;
+  }
+
+  /*----------------- Desktop ---------------------*/
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    margin-top: 84px;
+  }
+}
+
+.adminSection {
+  border: 1px solid #3b3e4a;
+
+  .adminWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    padding: 0 5px;
+
+    .linkAdmin {
+      @include small-text;
+      font-size: 12px;
+      color: #75767f;
+      margin-right: 5px;
+    }
+
+    .iconForListAdmin {
+      cursor: pointer;
+      fill: $ui-color-primary-accent;
+    }
+  }
+}
+
+.crumb {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+
+  .crumbGap {
+    margin-right: 8px;
+  }
+
+  .crumbText {
+    display: flex;
+    margin-left: 8px;
+  }
+}
+
+.lastCrumb {
+  pointer-events: none;
+  cursor: default;
+  user-select: none;
+}

@@ -1,0 +1,120 @@
+@import "../../styles/abstracts/mixins";
+@import "../../styles/abstracts/variables";
+
+.card {
+  @include flex-start;
+  flex-direction: column;
+  width: 100%;
+  min-width: 212px;
+  max-width: 288px;
+  min-height: 440px;
+  max-height: 512px;
+  margin: 0 auto;
+  padding: 32px;
+  gap: 8px;
+  background-color: $ui-color-gray-surface-1;
+}
+
+.cardImg {
+  @include flex-center;
+  width: 100%;
+  aspect-ratio: 3/4;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  margin-bottom: 8px;
+
+  & > img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  & > .innerImg {
+    max-width: 90%;
+    max-height: 90%;
+  }
+}
+
+.nameWrapper {
+  @include flex-center;
+  align-items: flex-start;
+  height: 60px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.model {
+  @include body-text;
+  color: $ui-color-gray-white;
+}
+
+.priceWrap {
+  width: 100%;
+  @include flex-start;
+}
+
+.price {
+  color: $ui-color-gray-secondary;
+  @include h3;
+  font-weight: 400;
+  font-family: $ui-font-family-regular;
+  margin-left: 8px;
+  text-decoration-line: line-through;
+}
+
+.discountPrice {
+  @include h3;
+}
+
+.divider {
+  width: 100%;
+  height: 2px;
+  background-color: $ui-color-gray-selected-surface-2;
+}
+
+.paramsGroup {
+  width: 100%;
+  display: flex;
+  padding: 0;
+  flex-direction: column;
+  gap: 8px;
+  align-self: stretch;
+  list-style-type: none;
+
+  li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+
+    & > p {
+      @include small-text;
+      color: $ui-color-gray-secondary;
+    }
+
+    & > p:last-child {
+      color: $ui-color-gray-white;
+    }
+  }
+}
+
+.buttonWrapper {
+  width: 100%;
+  @include flex-center;
+  gap: 8px;
+}
+
+.cardLink {
+  cursor: pointer;
+  text-decoration: unset;
+  color: $ui-color-gray-white;
+}

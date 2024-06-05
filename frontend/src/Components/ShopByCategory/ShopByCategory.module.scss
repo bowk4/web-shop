@@ -1,0 +1,84 @@
+@import "../../styles/abstracts/variables";
+@import "../../styles/abstracts/mixins";
+
+.wrapper {
+  @include flex-start;
+  flex-direction: column;
+  gap: 24px;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}
+
+// .header {
+//   width: 100%;
+//   height: 62px;
+//   margin-bottom: 24px;
+// }
+
+.categoryTitle {
+  @include mobile-h2;
+  margin-bottom: 24px;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    @include h2;
+  }
+}
+
+.categoryItem {
+  @include flex-start;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 32px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  & > div {
+    width: 100%;
+    padding-top: 100%;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    background-position: top 1.5rem left 2rem;
+    margin-bottom: 24px;
+  }
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    margin-bottom: 0;
+  }
+
+  .subTitle {
+    @include h4;
+    margin-bottom: 5px;
+  }
+
+  & > p {
+    @include body-text;
+    color: $ui-color-gray-secondary;
+    font-weight: 600;
+  }
+}
+
+.wallpaperPhone {
+  background-color: $ui-color-background-mobiles-section;
+  background-image: url("https://res.cloudinary.com/de71eui6p/image/upload/v1711135438/Cattegories/rfqez4qzfwxjdif29rrc.webp");
+}
+
+.wallpaperTablets {
+  background-color: $ui-color-background-tablets-section;
+  background-image: url("https://res.cloudinary.com/de71eui6p/image/upload/v1711135439/Cattegories/nxil5feuoieodkzall9q.webp");
+}
+
+.wallpaperAccessories {
+  background-color: $ui-color-background-accessories-section;
+  background-image: url("https://res.cloudinary.com/de71eui6p/image/upload/v1711135439/Cattegories/rqhpvenn0wxhjmppb93e.webp");
+}
+
+.categoryLink {
+  cursor: pointer;
+  text-decoration: unset;
+  color: $ui-color-gray-white;
+}

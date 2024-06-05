@@ -1,0 +1,22 @@
+version: '3.9'  # Use the latest stable version to benefit from recent improvements
+
+services:
+  mongodb:
+    image: mongodb/mongodb-community-server:latest  # Consider specifying a specific stable version for consistency
+    ports:
+      - '27017:27017'  # MapContent container port to host port for external access
+    volumes:
+      - mongo-data:/data/db  # Persist data for development/testing; remove for production
+  backend:
+    build: .
+    depends_on:
+      - mongodb  # Ensure MongoDB is ready before starting the backend
+    ports:
+      - '3000:3000'  # MapContent container port to host port for backend app
+    environment:
+      MONGO_URI: mongodb://mongodb:27017/test  # Use MongoDB service name for internal network connection
+      NODE_ENV: production
+      PORT: 3000
+
+volumes:
+  mongo-data:  # Optional data volume for persistence

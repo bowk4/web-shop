@@ -1,0 +1,35 @@
+@import "../../../styles/abstracts/variables";
+@import "../../../styles/abstracts/mixins";
+
+.inputWrapper {
+  @include flex-start;
+  flex-direction: column;
+  min-height: 70px;
+  width: 100%;
+}
+
+.inputLabel {
+  margin-bottom: 3px;
+  @include body-text;
+  color: $ui-color-gray-secondary;
+}
+
+.inputField {
+  height: 30px;
+  width: 100%;
+  padding: 3px 10px;
+  @include body-text;
+  color: $ui-color-gray-white;
+  background-color: $ui-color-gray-selected-surface-2;
+  border: 1px solid $ui-color-gray-selected-surface-2;
+
+  &:focus {
+    outline: 1px solid $ui-color-primary-accent;
+  }
+}
+
+.inputError {
+  padding-top: 3px;
+  @include error-text;
+  color: $ui-color-red-badge-favorite;
+}

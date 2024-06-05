@@ -1,0 +1,67 @@
+@import "../../../styles/abstracts/mixins";
+
+.modalWrapper {
+  position: fixed;
+  z-index: 2;
+  bottom: 10px;
+  left: 50%;
+  width: 190px;
+  height: 170px;
+  padding: 20px;
+  border-radius: 8px;
+  transform: translate(-50%, 110%);
+  transition: transform 0.3s ease-in-out;
+  background-color: rgba(14, 14, 14, 0.97);
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    width: 290px;
+  }
+
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    width: 390px;
+  }
+}
+
+.modalWrapper.open {
+  transform: translate(-50%, 0%);
+}
+
+.modalContent {
+  height: 60px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+  .modalText {
+    @include small-text;
+    font-size: 14px;
+    letter-spacing: 2px;
+
+    @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+      font-size: 16px;
+      letter-spacing: 3px;
+    }
+
+    @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+      font-size: 18px;
+    }
+  }
+}
+
+.sectionContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modalCloseWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.containerFigure {
+  margin-top: 15px;
+  @include flex-center;
+}

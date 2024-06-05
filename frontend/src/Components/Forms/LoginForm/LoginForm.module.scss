@@ -1,0 +1,73 @@
+@import "../../../styles/abstracts/variables";
+@import "../../../styles/abstracts/mixins";
+
+.loginForm {
+  position: relative;
+  margin-bottom: 50px;
+  @include flex-kit(flex-start);
+  flex-direction: column;
+  text-align: center;
+  gap: 5px;
+  width: 260px;
+  min-height: 400px;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    width: 400px;
+  }
+}
+
+.formHeader {
+  @include mobile-h2;
+  padding: 10px;
+  color: $ui-color-gray-white;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    @include h2;
+  }
+}
+
+.submitContainer {
+  margin-top: 10px;
+}
+
+.btnWrapper {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.alternateAction {
+  text-align: center;
+
+  .or {
+    @include body-text;
+    color: $ui-color-gray-white;
+  }
+
+  .registerLink {
+    @include body-text;
+    color: $ui-color-gray-white;
+    text-decoration: underline;
+  }
+}
+
+.submitStatus {
+  position: absolute;
+  bottom: 40px;
+  right: 50%;
+  transform: translateX(50%);
+  @include body-text;
+  text-align: center;
+  color: $ui-color-red-badge-favorite;
+  margin-bottom: 5px;
+}
+
+.submitError {
+  position: absolute;
+  width: 100%;
+  bottom: 25px;
+  right: 50%;
+  transform: translateX(50%);
+  @include body-text;
+  text-align: center;
+  color: $ui-color-red-badge-favorite;
+}

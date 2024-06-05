@@ -1,0 +1,113 @@
+@import "../../../styles/abstracts/mixins";
+@import "../../../styles/abstracts/variables";
+@import "../../../styles/global/base";
+@import "../../../styles/global/reset";
+
+//.container {
+//  width: 100%;
+//}
+
+.changePassContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.updatePassForm {
+  width: 280px;
+  margin-bottom: 30px;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    width: 380px;
+    margin-bottom: 40px;
+  }
+
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    width: 450px;
+    margin-bottom: 50px;
+  }
+
+  .dataInput {
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 30px;
+    margin-top: 5px;
+    padding: 15px;
+    background: #323542;
+    color: white;
+    @include body-text;
+
+    &::placeholder {
+      color: #75767f;
+    }
+
+    &:focus {
+      border: 1px solid #905bff;
+    }
+  }
+}
+
+.sectionTitle {
+  @include flex-center;
+  flex-direction: column;
+
+  .dataTitle {
+    @include mobile-h2;
+    color: $ui-color-gray-white;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+
+    @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+      @include h2;
+    }
+
+    @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+      @include h2;
+    }
+  }
+}
+
+.diffPassError {
+  text-align: start;
+  padding-top: 3px;
+  @include error-text;
+  color: $ui-color-red-badge-favorite;
+}
+
+.diffPassError2 {
+  text-align: start;
+  padding-top: 3px;
+  @include error-text;
+  font-size: 13px;
+  color: $ui-color-red-badge-favorite;
+}
+
+.updateDataBtnBlock {
+  @include flex-kit(center);
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.updateDataBtn {
+  @include flex-center;
+  @include button;
+  font-size: 14px;
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  background-color: $ui-color-primary-accent;
+  color: $ui-color-gray-white;
+  border: none;
+  margin-bottom: 40px;
+  margin-top: 20px;
+
+  &:hover {
+    background-color: $ui-color-primary-accent-hover;
+  }
+
+  &:active {
+    background-color: $ui-color-gray-selected-surface-2;
+  }
+}

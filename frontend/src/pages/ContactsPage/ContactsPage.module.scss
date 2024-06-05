@@ -1,0 +1,433 @@
+@import "../../styles/abstracts/variables";
+@import "../../styles/abstracts/mixins";
+@import "../../styles/global/base";
+
+.contentWrapper {
+  width: 100%;
+}
+
+.backgroundImg {
+  background-image: linear-gradient(rgba(15, 17, 33, 0), rgba(15, 17, 33, 1)),
+    url("../../../public/MocPic/hero-contact-us-sm.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 100%;
+  height: 370px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    background-image: linear-gradient(
+        rgba(15, 17, 33, 0),
+        rgba(15, 17, 33, 0.99)
+      ),
+      url("../../../public/MocPic/hero-contact-us.jpg");
+    width: 100%;
+    height: 570px;
+  }
+}
+
+.contactTitle {
+  @include flex-center;
+  @include mobile-h1;
+  margin: 50px auto;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    @include flex-start;
+    @include h1;
+    margin: 30px auto;
+  }
+}
+
+.contactsWrapper {
+  @include flex-center;
+  flex-direction: column;
+  gap: 36px;
+  padding: 16px;
+  margin: 0 auto;
+  height: auto;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    flex-direction: row;
+    height: 410px;
+  }
+}
+
+.contactItem {
+  @include flex-center;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.hour {
+  width: 100%;
+  min-width: 270px;
+  max-width: 30%;
+  padding: 0 24px;
+  backdrop-filter: blur(7px);
+}
+
+.map {
+  @include flex-center;
+  width: 100%;
+}
+
+.mapWrapper {
+  @include flex-center;
+
+  width: 100%;
+  position: relative;
+  padding: 3%;
+  aspect-ratio: 1/0.8;
+
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    padding: 2%;
+  }
+}
+
+.frameTablet {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../../../public/MocPic/pad-background.png") 50% no-repeat;
+  background-size: contain;
+  z-index: 2;
+}
+
+.socialWrapper {
+  @include flex-between;
+  flex-wrap: wrap;
+  padding: 32px;
+  margin: 0 auto;
+}
+
+.address {
+  @include mobile-h3;
+  margin-bottom: 20px;
+  color: $ui-color-background-tablets-section;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    @include h3;
+  }
+}
+
+.addressWrap {
+  @include body-text;
+  color: $ui-color-background-tablets-section;
+  width: 100%;
+}
+
+.cityTitle {
+  @include h4;
+  @include flex-between;
+  width: 100%;
+  color: $ui-color-gray-white;
+  margin-bottom: 32px;
+}
+
+.cityTitle {
+  font-size: $ui-font-size-mobile-h3;
+  color: $ui-color-gray-white;
+}
+
+.connection {
+  @include h4;
+  color: $ui-color-gray-secondary;
+  padding: 16px;
+  font-size: initial;
+  line-height: initial;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    padding: 24px;
+  }
+}
+
+.connectionItem {
+  color: $ui-color-background-tablets-section;
+  margin-top: 16px;
+  transition: $ui-transition;
+
+  &:hover {
+    color: $ui-color-gray-white;
+  }
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    margin-top: 24px;
+  }
+}
+
+.rotateOnHover {
+  animation: rotate 2s ease-in-out 0.2s;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+    color: #a5c5b3;
+  }
+  15% {
+    transform: rotate(35deg);
+    color: #7ab694;
+  }
+  30% {
+    transform: rotate(-10deg);
+    color: #53b77e;
+  }
+  45% {
+    transform: rotate(25deg);
+    color: #27ae60;
+  }
+  60% {
+    transform: rotate(-5deg);
+    color: #41b673;
+  }
+  75% {
+    transform: rotate(10deg);
+    color: #7ab694;
+  }
+  100% {
+    transform: rotate(0deg);
+    color: #a5c5b3;
+  }
+}
+
+.socialIcon {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.socialIcon:hover .socialIconBloom {
+  -webkit-animation: background 0.5s ease both;
+  animation: background 0.5s ease both;
+}
+
+.socialIcon:hover .socialIconSparkleLine::before {
+  -webkit-animation: line 1s ease both;
+  animation: line 1s ease both;
+}
+
+.socialIcon:hover .socialIconShape {
+  -webkit-animation: shapeAnimation 1s ease both;
+  animation: shapeAnimation 1s ease both;
+}
+
+.socialIconBloom {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  border-width: 0;
+  border-style: solid;
+  will-change: border-width;
+  border-color: #dee0e0;
+}
+
+.socialIconSparkleLine {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.socialIconSparkleLine::before {
+  position: absolute;
+  z-index: 1;
+  top: 30%;
+  width: 4px;
+  height: 0;
+  left: calc(50% - 2px);
+  border-radius: 2px;
+  will-change: top, height;
+  content: "";
+}
+.socialIconSparkleLine:nth-child(1) {
+  -webkit-transform: rotate(40deg);
+  transform: rotate(40deg);
+}
+.socialIconSparkleLine:nth-child(2) {
+  -webkit-transform: rotate(110deg);
+  transform: rotate(110deg);
+}
+.socialIconSparkleLine:nth-child(3) {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.socialIconSparkleLine:nth-child(4) {
+  -webkit-transform: rotate(250deg);
+  transform: rotate(250deg);
+}
+.socialIconSparkleLine:nth-child(5) {
+  -webkit-transform: rotate(320deg);
+  transform: rotate(320deg);
+}
+
+.socialIconShape {
+  z-index: 1;
+  padding: 18px;
+  width: 100%;
+  height: 100%;
+  fill: #dee0e0;
+  -webkit-transition: fill 0.3s ease;
+  transition: fill 0.3s ease;
+}
+
+/* Twitter */
+.twitterIcon .socialIconBloom {
+  border-color: #2cc5ef;
+}
+.twitterIcon .socialIconSparkleLine::before {
+  background: #2cc5ef;
+}
+.twitterIcon:hover .socialIconShape {
+  fill: #2cc5ef;
+}
+
+/* Twitter */
+.facebookIcon .socialIconBloom {
+  border-color: #3b5998;
+}
+.facebookIcon .socialIconSparkleLine::before {
+  background: #3b5998;
+}
+.facebookIcon:hover .socialIconShape {
+  fill: #3b5998;
+}
+
+/* Instagram */
+.instagramIcon .socialIconBloom {
+  border-color: #cd486b;
+}
+.instagramIcon .socialIconSparkleLine::before {
+  background: #cd486b;
+}
+.instagramIcon:hover .socialIconShape {
+  fill: #cd486b;
+}
+
+@-webkit-keyframes line {
+  0% {
+    top: 30%;
+    height: 0;
+  }
+  40% {
+    opacity: 1;
+    height: 14px;
+  }
+  100% {
+    opacity: 0;
+    top: 10%;
+    height: 0;
+  }
+}
+
+@keyframes line {
+  0% {
+    top: 30%;
+    height: 0;
+  }
+  40% {
+    opacity: 1;
+    height: 14px;
+  }
+  100% {
+    opacity: 0;
+    top: 10%;
+    height: 0;
+  }
+}
+@-webkit-keyframes shapeAnimation {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  20% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  30% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  60% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  70% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes shapeAnimation {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  20% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  30% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  60% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  70% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes background {
+  0% {
+    border-width: 40px; /* half icon width */
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  90% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    border-width: 0;
+  }
+}
+@keyframes background {
+  0% {
+    border-width: 40px;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  90% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    border-width: 0;
+  }
+}
+
+.columns {
+  margin-top: 12px;
+}

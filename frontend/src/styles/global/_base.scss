@@ -1,0 +1,44 @@
+@import "../abstracts/variables";
+@import "fonts";
+@import "./reset";
+
+.App {
+  text-align: center;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  .content-wrapper {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+body {
+  background-color: $ui-color-gray-black-background;
+  height: 100%;
+  margin: 0;
+  color: $ui-color-gray-white;
+  overflow-y: scroll;
+}
+
+.container {
+  padding: 0 16px;
+  width: 100%;
+  max-width: $ui-max-container-width;
+
+  /*-----------------  Tablet ---------------------*/
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    padding: 0 24px;
+  }
+  /*----------------- Desktop ---------------------*/
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    padding: 0 32px;
+  }
+}

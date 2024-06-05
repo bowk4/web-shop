@@ -1,0 +1,55 @@
+@import "../global/fonts";
+
+/* ------------ Colors ---------------*/
+$ui-color-primary-accent: #905bff;
+$ui-color-primary-accent-hover: #a378ff;
+$ui-color-gray-secondary: #75767f;
+$ui-color-gray-icons-placeholders: #4a4d58;
+$ui-color-gray-elements: #3b3e4a;
+$ui-color-gray-selected-surface-2: #323542;
+$ui-color-gray-surface-1: #161827;
+$ui-color-gray-black-background: #0f1121;
+$ui-color-gray-white: #f1f2f9;
+$ui-color-green: #27ae60;
+$ui-color-red-badge-favorite: #eb5757;
+$ui-color-background-mobiles-section: #6d6474;
+$ui-color-background-tablets-section: #bebec3;
+$ui-color-background-accessories-section: #973d5f;
+
+/* ------------ Breakpoints --------------- */
+$ui-breakpoint-mobile-min: 320px;
+// $ui-breakpoint-sm: 576px;
+$ui-breakpoint-tablet-min: 640px;
+// $ui-breakpoint-lg: 768px;
+// $ui-breakpoint-xl: 992px;
+$ui-breakpoint-desktop-min: 1200px;
+
+/*-----------Containers max-width----------*/
+$ui-max-container-width: 1136px;
+
+/* ------------ Font families -------------*/
+$ui-font-family-bold: "Mont Bold", sans-serif;
+$ui-font-family-semibold: "Mont SemiBold", sans-serif;
+$ui-font-family-regular: "Mont Regular", sans-serif;
+
+/*-------- Font sizes: Desktop & Tablet ------*/
+$ui-font-size-h1: 48px;
+$ui-font-size-h2: 32px;
+$ui-font-size-h3: 22px;
+$ui-font-size-h4: 20px;
+$ui-font-size-uppercase: 12px;
+$ui-font-size-buttons: 14px;
+$ui-font-size-body-text: 14px;
+$ui-font-size-small-text: 12px;
+$ui-font-size-error-text: 10px;
+
+/*---------- Font sizes: Mobile -----------*/
+$ui-font-size-mobile-h1: 32px;
+$ui-font-size-mobile-h2: 22px;
+$ui-font-size-mobile-h3: 20px;
+$ui-font-size-mobile-h4: 16px;
+
+// --------------  Other ------------------
+$ui-transition-duration: 0.35s;
+$ui-transition: all 0.25s ease;
+$ui-transition-longer: all $ui-transition-duration ease;

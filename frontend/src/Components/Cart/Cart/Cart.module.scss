@@ -1,0 +1,79 @@
+@import "../../../styles/abstracts/mixins";
+@import "../../../styles/abstracts/variables";
+
+.cart {
+  @include flex-center;
+  flex-direction: column;
+  gap: 32px;
+  margin: 0 auto;
+  max-width: 100%;
+
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    @include flex-start;
+    flex-direction: row;
+    gap: 16px;
+  }
+}
+
+.emptyMessage {
+  width: 100%;
+  @include h4;
+  color: $ui-color-gray-white;
+  text-align: center;
+}
+
+.cartItemsList {
+  @include flex-center;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 100vw;
+
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    margin-bottom: 80px;
+  }
+}
+
+.checkoutSection {
+  @include flex-center;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  height: auto;
+  padding: 24px;
+  margin-bottom: 56px;
+  border: 1px solid $ui-color-gray-elements;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    margin-bottom: 64px;
+  }
+
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    width: 368px;
+    height: 226px;
+    margin-bottom: 0;
+  }
+}
+
+.totalPriceWarapper {
+  @include flex-center;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.totalCartPrice {
+  @include h2;
+  color: $ui-color-gray-white;
+  text-align: center;
+}
+
+.totalItemsQuantity {
+  @include body-text;
+  font-weight: 600;
+  color: $ui-color-gray-secondary;
+}
+
+.divider {
+  height: 1px;
+  background-color: $ui-color-gray-elements;
+  width: 100%;
+}

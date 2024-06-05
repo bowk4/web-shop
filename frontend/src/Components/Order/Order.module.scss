@@ -1,0 +1,394 @@
+@import "../../styles/abstracts/variables";
+@import "../../styles/abstracts/mixins";
+@import "../../styles/global/base";
+
+.order {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  background-color: #393d54;
+  padding: 20px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  box-shadow: 3px 6px 12px -4px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 3px 6px 12px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 6px 12px -4px rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    background-color: #393d54;
+    padding: 20px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+  }
+  /*----------------- Desktop ---------------------*/
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background-color: #393d54;
+    flex-direction: row;
+    padding: 40px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+  }
+}
+
+.marginBtm {
+  margin-top: 20px;
+}
+
+.orderWrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  /*----------------- Desktop ---------------------*/
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+}
+
+.orderNumberTitle {
+  @include h4;
+}
+
+.orderNumberSubTitle {
+  @include h4;
+}
+
+.orderButton {
+  font-family: $ui-font-family-semibold;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0;
+  font-size: 14px;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 40px;
+  background-color: #905bff;
+  border-radius: 20px;
+}
+
+.openOrderSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #393d54;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.amountTitle {
+  font-family: $ui-font-family-semibold;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-direction: row;
+}
+
+.infoWrapper {
+  width: 100%;
+  position: relative;
+  margin-bottom: 10px;
+  margin-top: 60px;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+  }
+  /*----------------- Desktop ---------------------*/
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    margin-top: 0;
+  }
+}
+
+.imgWrapper {
+  width: 95%;
+  margin-bottom: 10px;
+}
+
+.infoText {
+  @include h4;
+}
+
+.containerWrapper {
+  display: flex;
+
+  justify-content: space-between;
+}
+
+.amount {
+  background-color: #75767f;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-family: $ui-font-family-semibold;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.amountPrice {
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-family: $ui-font-family-semibold;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.amountWrapper {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.infoTextSecond {
+  @include h4;
+  color: grey;
+}
+
+.infoTextWrapper {
+  width: 320px;
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    padding: 20px;
+    @include flex-between;
+    flex-direction: row;
+    width: 500px;
+  }
+  /*----------------- Desktop ---------------------*/
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    padding: 0 20px;
+  }
+}
+
+.progress {
+  position: absolute;
+  right: 90px;
+  top: -50px;
+  @include h4;
+  color: #27ae60;
+  border: 2px solid #27ae60;
+  border-radius: 20px;
+  padding: 10px 15px;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    position: absolute;
+    right: 180px;
+    top: -10px;
+    @include h4;
+    color: #27ae60;
+    border: 2px solid #27ae60;
+    border-radius: 20px;
+    padding: 10px 15px;
+  }
+  /*----------------- Desktop ---------------------*/
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    position: absolute;
+    right: 35px;
+    top: 20px;
+    @include h4;
+    color: #27ae60;
+    border: 2px solid #27ae60;
+    border-radius: 20px;
+    padding: 10px 15px;
+  }
+}
+
+.img {
+  object-fit: fill;
+  width: 50px;
+  height: 80px;
+}
+
+.imgInfoWrapper {
+  gap: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.cartItem {
+  @include flex-start;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding: 16px;
+  margin: 0 auto;
+  border-radius: 20px;
+  background-color: #2b3049;
+  box-shadow: 3px 6px 12px -4px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 3px 6px 12px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px 6px 12px -4px rgba(0, 0, 0, 0.75);
+
+  /*-----------------  Tablet ---------------------*/
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    padding: 20px;
+    @include flex-between;
+    flex-direction: row;
+  }
+  /*----------------- Desktop ---------------------*/
+  @media only screen and (min-device-width: $ui-breakpoint-desktop-min) {
+    min-width: 704px;
+  }
+}
+
+.cartItemInfo {
+  @include flex-between;
+  // gap: 16px;
+}
+
+.deleteButton {
+  @include flex-center;
+  width: 16px;
+  height: 16px;
+}
+
+.cartItemLink {
+  @include flex-between;
+  gap: 16px;
+}
+
+.cartItemImg {
+  @include flex-center;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+
+  & img {
+    width: 66px;
+    height: 66px;
+    object-position: center;
+    object-fit: contain;
+  }
+}
+
+.cartItemName {
+  @include body-text;
+  @include h4;
+  color: $ui-color-gray-white;
+  word-wrap: break-word;
+}
+
+.counterPriceWrapper {
+  @include flex-between;
+  width: 100%;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    width: auto;
+    gap: 24px;
+  }
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+
+  & button {
+    @include flex-center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid $ui-color-gray-elements;
+
+    &:hover {
+      background-color: $ui-color-gray-icons-placeholders;
+    }
+
+    &:disabled {
+      cursor: auto;
+
+      & svg path {
+        fill: $ui-color-gray-icons-placeholders;
+      }
+
+      &:hover {
+        background-color: $ui-color-gray-surface-1;
+      }
+    }
+  }
+}
+
+.counterPlus {
+  background-color: $ui-color-gray-selected-surface-2;
+}
+
+.quantity {
+  @include body-text;
+  font-weight: 600;
+  color: $ui-color-gray-white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+}
+
+.priceWrapper {
+  position: relative;
+  @include flex-kit(flex-start);
+  gap: 8px;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+  }
+}
+
+.totalItemPrice {
+  @include flex-kit(flex-end);
+  width: 80px;
+  gap: 8px;
+  @include h3;
+  color: $ui-color-gray-white;
+}
+
+.originalPrice {
+  font-family: $ui-font-family-regular;
+  font-size: $ui-font-size-h3;
+  font-weight: 400;
+  line-height: 1;
+  color: $ui-color-gray-secondary;
+  text-decoration: line-through;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    position: absolute;
+    bottom: -50%;
+    right: 0;
+    font-size: $ui-font-size-h4;
+  }
+}

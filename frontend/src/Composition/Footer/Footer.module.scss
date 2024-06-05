@@ -1,0 +1,107 @@
+@import "../../styles/abstracts/mixins";
+@import "../../styles/abstracts/variables";
+@import "../../styles/global/base";
+
+.footer {
+  width: 100%;
+  border-top: 1px solid $ui-color-gray-elements;
+}
+
+.rectangleFooter {
+  @include flex-start;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  margin: 0 auto;
+
+  @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    @include flex-center;
+    position: relative;
+    width: 99px;
+    height: 42px;
+    padding: 5px 0;
+  }
+
+  .ok {
+    position: absolute;
+    top: 3px;
+    right: 35px;
+    width: 12px;
+    height: 16px;
+  }
+
+  .policy {
+    @include flex-start;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    list-style: none;
+    padding: 0;
+
+    @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 40%;
+    }
+
+    > * {
+      list-style: none;
+    }
+
+    a {
+      @include uppercase;
+      color: $ui-color-gray-white;
+      transition: $ui-transition;
+
+      &:hover {
+        color: $ui-color-gray-secondary;
+      }
+    }
+  }
+
+  .activeLink {
+    color: $ui-color-gray-secondary;
+    border-bottom: 1px solid $ui-color-gray-white;
+  }
+
+  .backTop {
+    @include flex-center;
+    flex-wrap: nowrap;
+    height: 32px;
+    width: 100%;
+
+    @media only screen and (min-device-width: $ui-breakpoint-tablet-min) {
+      width: auto;
+    }
+
+    p {
+      @include small-text;
+      color: $ui-color-gray-secondary;
+      padding: 8px;
+    }
+
+    .arrow {
+      @include flex-center;
+      height: 100%;
+      aspect-ratio: 1/1;
+      border: 1px solid $ui-color-gray-elements;
+      transition: $ui-transition;
+
+      &:hover {
+        background-color: $ui-color-gray-icons-placeholders;
+      }
+
+      &:active {
+        background-color: $ui-color-primary-accent;
+      }
+    }
+  }
+}

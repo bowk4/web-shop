@@ -1,0 +1,51 @@
+@import "../../../../../styles/abstracts/variables";
+@import "../../../../../styles/abstracts/mixins";
+
+.discountButtonsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  width: 100%;
+}
+
+.adjustDiscountWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.inputField {
+  width: 90%;
+  height: 30px;
+  background-color: #323542ff;
+  color: white;
+  margin: 5px;
+}
+
+.percentage {
+  display: inline-block;
+  @include h4;
+}
+
+.updateButton {
+  @include flex-center;
+  @include button;
+  height: 40px;
+  width: 100%;
+  color: $ui-color-gray-white;
+  border: none;
+  margin-right: 8px;
+  background-color: #905bff;
+
+  &:hover {
+    background-color: #a378ff;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  background-color: $ui-color-gray-selected-surface-2;
+}

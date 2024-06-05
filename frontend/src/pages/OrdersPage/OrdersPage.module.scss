@@ -1,0 +1,14 @@
+@import "../../styles/abstracts/variables";
+@import "../../styles/abstracts/mixins";
+@import "../../styles/global/base";
+// $base-color: #0f1121;
+
+.ordersContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headTittle {
+  @include h1;
+}
